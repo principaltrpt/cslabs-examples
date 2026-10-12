@@ -15,5 +15,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: node --test review.test.mjs
-      - run: node cli.mjs data/fresh.json
+      - run: node --test team-workflows/scheduled-review/review.test.mjs
+      - run: node team-workflows/scheduled-review/cli.mjs team-workflows/scheduled-review/data/fresh.json

@@ -1,19 +1,9 @@
-# A scheduled review that knows when to stop
+# CSLABS examples
 
-This is a synthetic example for operators moving from one-off AI answers to repeatable team workflows. It uses fictional account and order IDs and reads local JSON only. It makes no network calls.
+Small, synthetic examples that accompany CSLABS posts. Each folder is a standalone example with its own README and handoff notes. No live company data or internal system links belong here.
 
-Run it with Node 20 or later:
+## Examples
 
-```sh
-node cli.mjs data/fresh.json
-node cli.mjs data/stale.json
-node --test review.test.mjs
-```
+- [A scheduled review a team can operate](team-workflows/scheduled-review/): a command line review with freshness checks, deduped possible matches, tests, a sample GitHub Action, and a short team handoff.
 
-The review checks the source timestamp before trusting a zero-result run. It identifies orders for a small set of priority accounts, labels each as requiring human review, and suppresses alerts already recorded by order ID. The CLI prints a run record even when there are no new alerts.
-
-In a real team workflow, replace the local input adapter with approved data access and connect the output to an approved destination. Keep the decision rules and tests independent of those integrations. See [TEAM_CONTEXT.md](TEAM_CONTEXT.md) for the handoff contract.
-
-The accompanying article explains why the checks matter. This folder shows the implementation.
-
-The sample [GitHub Actions workflow](.github/workflows/scheduled-review.yml) runs tests on pushes and runs the fictional review daily. Its input contains a fixed sample time so the result is reproducible. GitHub Actions cron uses UTC. For a real workflow, define the local-time behavior, replace the input adapter, and give a team owner responsibility for checking run failures.
+To add an example, use a new folder, generate fictional inputs, include a runnable test, and explain the owner and stop condition. Review every file and the commit diff before pushing.
