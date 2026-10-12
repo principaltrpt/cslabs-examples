@@ -1,0 +1,19 @@
+name: Synthetic scheduled review
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 15 * * *'
+  workflow_dispatch:
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node --test review.test.mjs
+      - run: node cli.mjs data/fresh.json

@@ -1,0 +1,7 @@
+{
+  "sampleNow": "2026-01-15T15:00:00Z",
+  "sourceUpdatedAt": "2026-01-15T07:00:00Z",
+  "priorityAccountIds": ["sample-account-01"],
+  "alertedOrderIds": [],
+  "orders": []
+}
